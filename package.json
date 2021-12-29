@@ -11,8 +11,9 @@
     "author": "Gilad Novik <gilad@letsdeel.com>",
     "license": "ISC",
     "devDependencies": {
-        "babel-eslint": "^10.1.0",
-        "eslint": "^7.28.0",
+        "@babel/core": "^7.16.5",
+        "@babel/eslint-parser": "^7.16.5",
+        "eslint": "^8.5.0",
         "eslint-plugin-node": "^11.1.0"
     },
     "peerDependencies": {

@@ -1,6 +1,6 @@
 {
     "root": true,
-    "parser": "babel-eslint",
+    "parser": "@babel/eslint-parser",
     "env": {"node": true},
     "plugins": ["node"],
     "extends": ["eslint:recommended", "plugin:node/recommended"]

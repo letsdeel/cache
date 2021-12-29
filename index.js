@@ -4,6 +4,7 @@ const store = ({ttl = 10 * 60000} = {}) => {
     const cache = {};
     return Object.assign(
         async (key, fn, opt) => {
+            if (!key) return await fn.call(null);
             const context = {ttl: opt?.ttl ?? ttl};
             if (opt?.shared && redis) {
                 return await (async (value) => {
@@ -29,7 +30,11 @@ const store = ({ttl = 10 * 60000} = {}) => {
             return await cache[key].data;
         },
         {
-            remove: (key) => delete cache[key],
+            remove: (key, opt) => {
+                if (!key) return;
+                if (opt?.shared && redis) redis.del(key);
+                else delete cache[key];
+            },
         }
     );
 };
